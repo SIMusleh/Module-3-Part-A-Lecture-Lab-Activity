@@ -23,5 +23,19 @@ public:
     string s = "Spring", int squares = 1, bool waterStatus = true, int days = 0)
     : name(n), seedCost(cost), waterPerDay(water), season(s), squaresNeeded(squares), needsWater(waterStatus), daysPlanted(days) {}
 
-    
+    void display() const {
+        cout << "Plant: " << name << ", Cost: $" << seedCost
+        << ", Water/day: " << waterPerDay << " quarts"
+        << ", Season: " << season
+        << ", Squares: " << squaresNeeded
+        << ", Needs Water: " << (needsWater ? "Yes" : "No")
+        << ", Days Planted: " << daysPlanted << endl;
+    }
+ };
+
+ int main() {
+    // Dynamic object
+    Plant* singlePlant = newPlant("Tomato", 2.5, 1.2, "Summer", 2, true, 5);
+    cout << "Single Plant Info:\n";
+    singlePlant->display();
  }
