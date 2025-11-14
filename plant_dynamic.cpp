@@ -4,9 +4,9 @@
  * Purpose: Demonstrate dynamic object and dynamic array using Plant class from midterm project.
  */
 
- #include <iostream>
- #include <string>
- using namespace std;
+#include <iostream>
+#include <string>
+using namespace std;
 
 class Plant {
 private:
@@ -19,38 +19,38 @@ private:
     int daysPlanted;
 
 public:
-    plant(string n = "Generic Plant", double cost = 1.0, double water = 1.0,
-    string s = "Spring", int squares = 1, bool waterStatus = true, int days = 0)
-    : name(n), seedCost(cost), waterPerDay(water), season(s), squaresNeeded(squares), needsWater(waterStatus), daysPlanted(days) {}
+    Plant(string n = "Generic Plant", double cost = 1.0, double water = 1.0,
+          string s = "Spring", int squares = 1, bool waterStatus = true, int days = 0)
+        : name(n), seedCost(cost), waterPerDay(water), season(s),
+          squaresNeeded(squares), needsWater(waterStatus), daysPlanted(days) {}
 
     void display() const {
         cout << "Plant: " << name << ", Cost: $" << seedCost
-        << ", Water/day: " << waterPerDay << " quarts"
-        << ", Season: " << season
-        << ", Squares: " << squaresNeeded
-        << ", Needs Water: " << (needsWater ? "Yes" : "No")
-        << ", Days Planted: " << daysPlanted << endl;
+             << ", Water/day: " << waterPerDay << " quarts"
+             << ", Season: " << season
+             << ", Squares: " << squaresNeeded
+             << ", Needs Water: " << (needsWater ? "Yes" : "No")
+             << ", Days Planted: " << daysPlanted << endl;
     }
- };
+};
 
- int main() {
+int main() {
     // Dynamic object
-    Plant* singlePlant = newPlant("Tomato", 2.5, 1.2, "Summer", 2, true, 5);
+    Plant* singlePlant = new Plant("Tomato", 2.5, 1.2, "Summer", 2, true, 5);
     cout << "Single Plant Info:\n";
     singlePlant->display();
 
     // Dynamic array
     int size = 3;
-    Plant* plantArray = newPlant[size] {
-        Plant("Rose", 1.0, 0.5, "Spring", 1, True, 2),
+    Plant* plantArray = new Plant[size]{
+        Plant("Rose", 1.0, 0.5, "Spring", 1, true, 2),
         Plant("Corn", 3.0, 1.5, "Summer", 3, true, 10),
         Plant("Apple Tree", 5.0, 2.0, "Fall", 4, false, 30)
     };
 
     cout << "\nPlant Array Info:\n";
-    for (int i = 0; i < size; i++)
-{
-        plantArray[i] .display();
+    for (int i = 0; i < size; i++) {
+        plantArray[i].display();
     }
 
     // Clean up
